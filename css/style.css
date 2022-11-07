@@ -1,0 +1,72 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 218, 218);
+}
+
+.bg-line{
+  height: 100px;
+  background-color: #009688;
+}
+
+.container{
+  padding:  20px 0;
+  margin: 0 auto;
+  background-color: bisque;
+  display: flex;
+  width: 80%;
+}
+
+aside{
+  background-color: brown;
+  height: 100vh;
+  width: 30%;
+  overflow-y: auto;
+  float: left;
+}
+
+main{
+  background-color: aquamarine;
+  height: 100vh;
+  width: 70%;
+  left: 450px;
+}
+
+/* ASIDE */
+.navbar{
+  height: 65px;
+  background-color: blue;
+}
+
+.contact{
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+}
+
+.footer{
+  height: 65px;
+  background-color: rgb(44, 44, 116);
+}
+
+
+
+/* MAIN */
+.header{
+  height: 65px;
+  background-color: blue;
+}
+
+.chat{
+  height: calc(100vh - 130px);
+  overflow-y: auto;
+}
+
+.input-msg{
+  height: 65px;
+  background-color: rgb(44, 44, 116);
+}
