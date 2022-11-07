@@ -32,7 +32,8 @@ img{
 
 .main-bg{
   height: 100vh;
-  background-color: #d6dbd8;
+  background: rgb(210,219,220);
+  background: linear-gradient(0deg, rgba(210,219,220,1) 0%, rgba(221,219,209,1) 100%); 
 }
 
 .bg-line{
