@@ -11,7 +11,7 @@ body{
 aside{
   background-color: #c5c5c5;
   height: 100%;
-  min-width: 270px;
+  min-width: 330px;
   width: 30%;
   overflow-y: auto;
   float: left;
@@ -19,7 +19,6 @@ aside{
 }
 
 main{
-  background-color: aquamarine;
   height: 100%;
   width: 70%;
   left: 450px;
@@ -132,12 +131,46 @@ img{
   border: none;
   box-shadow: 0px 0px 2px #dfdfdf;
 }
-
+/* user */
 .contact{
   height: calc(100% - 180px);
   overflow-y:scroll;
 }
 
+.contact .profile{
+  height: 90px;
+  background-color: #fafafa;
+}
+
+.contact .profile.active{
+  background-color: #e9ebeb;
+}
+
+.contact img{
+  width: 65px;
+}
+
+.contact-info{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-info .text{
+  margin-bottom: 35px;
+}
+
+.text p:last-child{
+  padding-top: 5px;
+  color: #bdbdbd;
+}
+
+.hours{
+  padding-right: 5px;
+  font-size: 0.75rem;
+  justify-content: flex-end;
+  color: #bdbdbd;
+}
 
 /* MAIN */
 .header{
