@@ -42,15 +42,18 @@ i{
 
 .bg-line{
   height: 15vh;
+  min-width:900px;
   background-color: #009688;
 }
 
 .container{
   margin: 0 auto;
+  padding:0 20px;
   padding-top: 20px;
   display: flex;
   justify-content: center;
   width: 90%;
+  min-width: 900px;
   height: 98vh;
 }
 
@@ -181,6 +184,7 @@ i{
   height: 65px;
   background-color: #eaeaea;
   display: flex;
+  min-width: 560px;
 }
 
 .header .profile{
@@ -194,10 +198,33 @@ i{
 .header .contact-info{
   align-items: center;
 }
+/* chat */
 .chat{
+  display: flex;
+  flex-direction:  column;
+  width: 100%;
   height: calc(100% - 130px);
   overflow-y:scroll;
   background-image: url("../img/mine.jpg");
+  padding:50px 100px;
+  min-width: 500px;
+}
+
+.msg{
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  min-height: 60px;
+  margin: 5px 0px;
+  padding-left: 20px;
+  background-color: white;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.send{
+  background-color: #d5f9ba;
+  margin-left: calc(100% - 50%);
 }
 
 /* .input-msg */
@@ -209,14 +236,17 @@ i{
   background-color: #eaeaea;
   padding:0 50px;
   padding-right: 80px;
+  min-width: 560px;
+
 }
 
-#msg{
+#msg-bar{
   width: 90%;
   height: 75%;
   border: none;
   border-radius: 5px;
   padding-left: 20px;
+  margin: 0px 30px;
 }
 
 .input-msg i{
