@@ -213,6 +213,7 @@ i{
 
 .msg{
   display: flex;
+  position: relative;
   align-items: center;
   min-width: 200px;
   min-height: 60px;
@@ -226,6 +227,14 @@ i{
 .send{
   background-color: #d5f9ba;
   margin-left: calc(100% - 50%);
+}
+
+.msg span{
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.6rem;
+  color: #bdbdbd;
 }
 
 /* .input-msg */
