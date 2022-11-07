@@ -206,8 +206,9 @@ i{
   height: calc(100% - 130px);
   overflow-y:scroll;
   background-image: url("../img/mine.jpg");
-  padding:50px 100px;
+  padding:50px 120px;
   min-width: 500px;
+  overflow-x: hidden;
 }
 
 .msg{
@@ -218,7 +219,7 @@ i{
   margin: 5px 0px;
   padding-left: 20px;
   background-color: white;
-  width: 50%;
+  width: 40%;
   border-radius: 10px;
 }
 
@@ -236,8 +237,6 @@ i{
   background-color: #eaeaea;
   padding:0 50px;
   padding-right: 80px;
-  min-width: 560px;
-
 }
 
 #msg-bar{
