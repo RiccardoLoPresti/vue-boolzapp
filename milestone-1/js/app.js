@@ -4,6 +4,7 @@ createApp({
   data(){
     return{
       activeContact: 0,
+      activeChat: 0,
       contacts: [
         {
           name: 'Michele',

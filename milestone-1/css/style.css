@@ -111,6 +111,7 @@ i{
 .text u{
   color:#77a1a0 ;
 }
+
 /* search */
 .search{
   display: flex;
@@ -211,6 +212,10 @@ i{
   overflow-x: hidden;
 }
 
+.active-chat{
+  display: flex;
+}
+
 .msg{
   display: flex;
   position: relative;
@@ -218,7 +223,7 @@ i{
   min-width: 200px;
   min-height: 60px;
   margin: 5px 0px;
-  padding-left: 20px;
+  padding:0 20px;
   background-color: white;
   width: 40%;
   border-radius: 10px;
