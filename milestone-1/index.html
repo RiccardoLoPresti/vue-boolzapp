@@ -78,7 +78,10 @@
 
               <!-- USER PROFILE -->
               <div class="user" v-for="(contact, index) in contacts">
-                <div class="profile">
+
+                <div class="profile" 
+                :class="{'active': index === activeContact}"
+                @click="changeContact(index)">
                   <img :src="contact.avatar" :alt="contact.avatar">
   
                   <div class="contact-info">
@@ -92,6 +95,7 @@
                     </div>
                   </div>
                 </div>
+
               </div>
 
               

@@ -146,6 +146,7 @@ i{
 
 .contact .profile{
   height: 90px;
+  cursor: pointer;
 }
 
 .contact .profile.active{
@@ -159,7 +160,6 @@ i{
 .contact-info{
   display: flex;
   justify-content: space-between;
-
   width: 100%;
 }
 
