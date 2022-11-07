@@ -8,6 +8,29 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+aside{
+  background-color: #c5c5c5;
+  height: 100%;
+  min-width: 270px;
+  width: 30%;
+  overflow-y: auto;
+  float: left;
+  border-right: 1px solid #bebcbc;
+}
+
+main{
+  background-color: aquamarine;
+  height: 100%;
+  width: 70%;
+  left: 450px;
+}
+
+img{
+  max-width: 100%;
+  border-radius: 50%;
+  width: 50px;
+}
+
 .main-bg{
   height: 100vh;
   background-color: #d6dbd8;
@@ -23,40 +46,91 @@ body{
   padding-top: 20px;
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 90%;
   height: 98vh;
 }
 
-aside{
-  background-color: #c5c5c5;
-  height: 100%;
-  width: 30%;
-  overflow-y: auto;
-  float: left;
-}
-
-main{
-  background-color: aquamarine;
-  height: 100%;
-  width: 70%;
-  left: 450px;
-}
 
 /* ASIDE */
+/* NAVBAR */
 .navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 65px;
   background-color: #eaeaea;
 }
-
+/* profile */
+.profile{
+  display: flex;
+  align-items: center;
+}
+.profile img{
+  margin:0px 10px;
+}
+/* action */
+.action i{
+  padding: 0 6px;
+  font-size: 1.2rem;
+  color: #b1b1b1;
+}
+.action i:last-child{
+  margin-right: 10px;
+}
+/* notification */
 .notification{
+  display: flex;
+  align-items: center ;
   height: 75px;
   background-color: #8edafc;
 }
 
-.search{
+.bell{
+  background-color: white;
+  color: #8edafc;
+  border-radius: 50%;
+  width: 40px;
+  min-width: 40px;
   height: 40px;
-  top: 65px;
-  background-color: #ffffff;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.bell i{
+  font-size: 1.3rem;
+  line-height: 40px;
+}
+
+.text u{
+  color:#77a1a0 ;
+}
+/* search */
+.search{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #fafafa;
+}
+
+.search i{
+  background-color: white;
+  width: 80px;
+  height: 70%;
+  text-align: center;
+  margin-left: 10px;
+  line-height: 28px;
+  box-shadow: 0px 0px 2px #dfdfdf;
+  color: #b1b1b1 ;
+}
+
+#find{
+  margin: 0 auto;
+  margin-right: 10px;
+  padding-left: 10px;
+  width: 90%;
+  height: 70%;
+  border: none;
+  box-shadow: 0px 0px 2px #dfdfdf;
 }
 
 .contact{
