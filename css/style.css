@@ -6,25 +6,30 @@
 
 body{
   font-family: 'Lato', sans-serif;
-  background-color: rgb(218, 218, 218);
+}
+
+.main-bg{
+  height: 100vh;
+  background-color: #d6dbd8;
 }
 
 .bg-line{
-  height: 100px;
+  height: 15vh;
   background-color: #009688;
 }
 
 .container{
-  padding:  20px 0;
   margin: 0 auto;
-  background-color: bisque;
+  padding-top: 20px;
   display: flex;
+  justify-content: center;
   width: 80%;
+  height: 98vh;
 }
 
 aside{
-  background-color: brown;
-  height: 100vh;
+  background-color: #c5c5c5;
+  height: 100%;
   width: 30%;
   overflow-y: auto;
   float: left;
@@ -32,7 +37,7 @@ aside{
 
 main{
   background-color: aquamarine;
-  height: 100vh;
+  height: 100%;
   width: 70%;
   left: 450px;
 }
@@ -40,33 +45,39 @@ main{
 /* ASIDE */
 .navbar{
   height: 65px;
-  background-color: blue;
+  background-color: #eaeaea;
+}
+
+.notification{
+  height: 75px;
+  background-color: #8edafc;
+}
+
+.search{
+  height: 40px;
+  top: 65px;
+  background-color: #ffffff;
 }
 
 .contact{
-  height: calc(100vh - 130px);
-  overflow-y: auto;
+  height: calc(100% - 180px);
+  overflow-y:scroll;
 }
-
-.footer{
-  height: 65px;
-  background-color: rgb(44, 44, 116);
-}
-
 
 
 /* MAIN */
 .header{
   height: 65px;
-  background-color: blue;
+  background-color: #eaeaea;
 }
 
 .chat{
-  height: calc(100vh - 130px);
-  overflow-y: auto;
+  height: calc(100% - 130px);
+  overflow-y:scroll;
+  background-image: url("../img/mine.jpg");
 }
 
 .input-msg{
   height: 65px;
-  background-color: rgb(44, 44, 116);
+  background-color: #eaeaea;
 }
