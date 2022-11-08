@@ -160,6 +160,7 @@ i{
 
 .contact-info{
   display: flex;
+  /* display: none; */
   justify-content: space-between;
   width: 100%;
 }
@@ -222,9 +223,9 @@ i{
   position: relative;
   align-items: center;
   min-width: 200px;
-  min-height: 60px;
+  min-height: 70px;
   margin: 5px 0px;
-  padding:0 20px;
+  padding:0px 20px;
   background-color: white;
   width: 40%;
   border-radius: 10px;
@@ -233,6 +234,10 @@ i{
 .send{
   background-color: #d5f9ba;
   margin-left: calc(100% - 50%);
+}
+
+.msg p{
+  margin-bottom: 15px;
 }
 
 .msg span{

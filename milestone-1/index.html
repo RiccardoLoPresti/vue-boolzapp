@@ -87,11 +87,11 @@
                   <div class="contact-info">
                     <div class="text">
                       <p>{{contact.name}}</p>
-                      <p>Ultimo messaggio inviato</p>
+                      <p>{{contact.messages.at(-1).message}}</p>
                     </div>
   
                     <div class="hours">
-                      <span>12:00</span>
+                      <span>{{contact.messages.at(-1).date}}</span>
                     </div>
                   </div>
                 </div>
@@ -109,12 +109,12 @@
             <!-- HEADER -->
             <div class="header">
               <div class="profile">
-                <img src="./img/avatar_1.jpg" alt="avatar_1">
+                <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].avatar">
                 
                 <div class="contact-info">
                   <div class="text">
-                    <p>Michele</p>
-                    <p>Ultimo accesso oggi alle 12:00</p>
+                    <p>{{contacts[activeContact].name}}</p>
+                    <p>{{contacts[activeContact].lastAccess}}</p>
                   </div>
 
                   <div class="action">
@@ -133,7 +133,7 @@
               <div   class="msg" :class="{'send': value.status === 'sent'}"
               v-for="value in contacts[activeContact].messages">
                   <p>{{value.message}}</p>
-                  <span>12:00</span>
+                  <span>{{value.date}}</span>
               </div>
 
             </div>

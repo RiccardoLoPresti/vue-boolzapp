@@ -8,6 +8,7 @@ createApp({
       contacts: [
         {
           name: 'Michele',
+          lastAccess: 'Ultimo accesso oggi alle 15:55',
           avatar: './img/avatar_1.jpg',
           visible: true,
           messages: [
@@ -30,6 +31,7 @@ createApp({
         },
         {
           name: 'Fabio',
+          lastAccess: 'Ultimo accesso oggi alle 16:55',
           avatar: './img/avatar_2.jpg',
           visible: true,
           messages: [
@@ -52,6 +54,7 @@ createApp({
         },
         {
           name: 'Samuele',
+          lastAccess: 'Ultimo accesso oggi alle 16:55',
           avatar: './img/avatar_3.jpg',
           visible: true,
           messages: [
@@ -74,6 +77,7 @@ createApp({
         },
         {
           name: 'Alessandro B.',
+          lastAccess: 'Ultimo accesso oggi alle 16:00',
           avatar: './img/avatar_4.jpg',
           visible: true,
           messages: [
@@ -91,6 +95,7 @@ createApp({
         },
         {
           name: 'Alessandro L.',
+          lastAccess: 'Ultimo accesso oggi alle 15:35',
           avatar: './img/avatar_5.jpg',
           visible: true,
           messages: [
@@ -108,6 +113,7 @@ createApp({
         },
         {
           name: 'Claudia',
+          lastAccess: 'Ultimo accesso oggi alle 15:50',
           avatar: './img/avatar_6.jpg',
           visible: true,
           messages: [
@@ -130,6 +136,7 @@ createApp({
         },
         {
           name: 'Federico',
+          lastAccess: 'Ultimo accesso oggi alle 15:30',
           avatar: './img/avatar_7.jpg',
           visible: true,
           messages: [
@@ -147,6 +154,7 @@ createApp({
         },
         {
           name: 'Davide',
+          lastAccess: 'Ultimo accesso oggi alle 15:50',
           avatar: './img/avatar_8.jpg',
           visible: true,
           messages: [
