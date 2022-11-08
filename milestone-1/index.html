@@ -127,18 +127,15 @@
             </div>
           
             <!-- CHAT -->
-            <div class="chat" :class="{'active-chat': index === activeChat}" v-for="(message, status, index) in contacts">
+            <div class="chat" :class="{'active-chat': index === activeContact}" 
+            v-for="(message, index) in contacts">
 
-              <div class="msg send">
-                  <p>{{contacts[activeContact].messages[0].message}}</p>
+              <div   class="msg" :class="{'send': value.status === 'sent'}"
+              v-for="value in contacts[activeContact].messages">
+                  <p>{{value.message}}</p>
                   <span>12:00</span>
               </div>
 
-              <div class="msg">
-                  <p>Tapposto, te?</p>
-                  <span>12:00</span>
-              </div>
-              
             </div>
   
             <!-- INPUT MSG -->

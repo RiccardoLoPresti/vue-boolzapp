@@ -202,6 +202,7 @@ i{
 /* chat */
 .chat{
   display: flex;
+  display: none;
   flex-direction:  column;
   width: 100%;
   height: calc(100% - 130px);
