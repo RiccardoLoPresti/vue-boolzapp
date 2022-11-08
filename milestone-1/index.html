@@ -108,6 +108,7 @@
           </aside>
           <!-- /ASIDE -->
       
+          <!-- MAIN -->
           <main>
             
             <!-- HEADER -->
@@ -134,16 +135,23 @@
             <div class="chat" :class="{'active-chat': index === activeContact}" 
             v-for="(message, index) in contacts">
 
-              <div   class="msg" :class="{'send': value.status === 'sent'}"
+              <div class="msg" :class="{'send': value.status === 'sent'}"
               v-for="value in contacts[activeContact].messages">
                   <p>{{value.message}}</p>
                   <span>{{value.date}}</span>
+                  <i class="fa-solid fa-chevron-down"
+                   @click="showCurtain()"></i>
+                  <div class="curtain" :class="{'show': isShow === true}">
+                    <p>Message info</p>
+                    <p @click="deleteMsg()">Delete message</p>
+                  </div>
               </div>
 
             </div>
   
             <!-- INPUT MSG -->
             <div class="input-msg">
+
               <div class="emoji">
                 <i class="fa-regular fa-face-smile"></i>
               </div>
@@ -152,7 +160,7 @@
               @keyup.enter="printMsg()">
               <div class="send-msg"
               @click="printMsg()">
-                <i class="fa-solid fa-location-arrow"></i>
+              <i class="fa-solid fa-play"></i>
               </div>
               <div class="rec">
                 <i class="fa-solid fa-microphone"></i>

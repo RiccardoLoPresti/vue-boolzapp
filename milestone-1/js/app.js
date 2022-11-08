@@ -6,6 +6,7 @@ createApp({
       activeContact: 0,
       getNewMsg: '',
       nameContact:'',
+      isShow : false,
       contacts: [
         {
           name: 'Michele',
@@ -215,6 +216,13 @@ createApp({
     },
     clearSearch(){
       this.nameContact= '';
+    },
+    deleteMsg(){
+      this.contacts[this.activeContact].messages.splice(this.message,1)
+      console.log(this.contacts[this.activeContact].messages[0].message);
+    },
+    showCurtain(){
+      this.isShow = !this.isShow
     }
   }
 }).mount('#app')

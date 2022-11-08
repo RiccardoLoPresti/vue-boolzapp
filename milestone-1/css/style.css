@@ -252,7 +252,7 @@ i{
   margin-left: calc(100% - 50%);
 }
 
-.msg p{
+.msg> p{
   margin-bottom: 15px;
 }
 
@@ -262,6 +262,50 @@ i{
   right: 10px;
   font-size: 0.6rem;
   color: #bdbdbd;
+}
+
+.msg > i{
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.msg:hover i{
+  display: block;
+}
+
+.curtain{
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.39);
+  right: 10px;
+  top: 16px;
+  z-index: 99;
+}
+
+.show{
+  display: block;
+}
+
+.curtain p{
+  padding: 10px 5px;
+}
+
+.curtain p:hover:first-child{
+  background-color: #aeb4bd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.curtain p:hover:last-child{
+  background-color: #aeb4bd;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 /* .input-msg */
