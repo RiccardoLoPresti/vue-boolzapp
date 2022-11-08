@@ -204,28 +204,17 @@ createApp({
 
       }, 1000);
     },
-    findContact(){
-      this.getArray()
-
-     
-    },
-    getArray(){
-      let arrayName = []
-      for (let i = 0; i < this.contacts.length; i++) {
-        const el = this.contacts[i].name;
-        arrayName.push(el.toLowerCase())
-        console.log(arrayName);
-      }
-      this.showOnOff(arrayName)
-     },
-    showOnOff(arrayName){
-      if(arrayName.includes(this.nameContact.toLowerCase())){
-        this.contacts.visible = true
-        console.log('si');
+    resultQuery(){
+      if(this.nameContact){
+      return this.contacts.filter((contact)=>{
+        return this.nameContact.toLowerCase().split(' ').every(v => contact.name.toLowerCase().includes(v))
+      })
       }else{
-        this.contacts.visible = false
-        console.log('no');
+        return this.contacts;
       }
+    },
+    clearSearch(){
+      this.nameContact= '';
     }
   }
 }).mount('#app')
