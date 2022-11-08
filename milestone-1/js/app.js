@@ -217,12 +217,18 @@ createApp({
     clearSearch(){
       this.nameContact= '';
     },
-    deleteMsg(){
-      this.contacts[this.activeContact].messages.splice(this.message,1)
-      console.log(this.contacts[this.activeContact].messages[0].message);
+    deleteMsg(indexMsg){
+      this.contacts[this.activeContact].messages.splice(indexMsg,1)
     },
-    showCurtain(){
-      this.isShow = !this.isShow
-    }
+    showCurtain(indexMsg){
+      this.contacts[this.activeContact].messages[indexMsg].isShow 
+      = 
+      !this.contacts[this.activeContact].messages[indexMsg].isShow 
+    },
+    onClickOutside (indexMsg) {
+      this.isShow = false
+
+      console.log(this.isShow);
+    },
   }
 }).mount('#app')

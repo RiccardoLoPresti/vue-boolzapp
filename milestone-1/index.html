@@ -133,17 +133,21 @@
           
             <!-- CHAT -->
             <div class="chat" :class="{'active-chat': index === activeContact}" 
-            v-for="(message, index) in contacts">
+            v-for="(message, index) in contacts" >
 
               <div class="msg" :class="{'send': value.status === 'sent'}"
-              v-for="value in contacts[activeContact].messages">
+              v-for="(value, indexMsg) in contacts[activeContact].messages">
                   <p>{{value.message}}</p>
                   <span>{{value.date}}</span>
                   <i class="fa-solid fa-chevron-down"
-                   @click="showCurtain()"></i>
-                  <div class="curtain" :class="{'show': isShow === true}">
+                   @click="showCurtain(indexMsg)">
+                  </i>
+<!-- NON VA CLICKOUT -->
+                  <div class="curtain" 
+                  :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}"
+                  @click-outside="onClickOutside (indexMsg)">
                     <p>Message info</p>
-                    <p @click="deleteMsg()">Delete message</p>
+                    <p @click="deleteMsg(indexMsg)">Delete message</p>
                   </div>
               </div>
 
