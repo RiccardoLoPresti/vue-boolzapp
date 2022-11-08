@@ -143,7 +143,9 @@
               <div class="emoji">
                 <i class="fa-regular fa-face-smile"></i>
               </div>
-              <input id="msg-bar" type="text" placeholder="Scrivi un messaggio">
+              <input id="msg-bar" type="text" placeholder="Scrivi un messaggio"
+              v-model.trim="getNewMsg"
+              @keyup.enter="printMsg()">
               <div class="rec">
                 <i class="fa-solid fa-microphone"></i>
               </div>
