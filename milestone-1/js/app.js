@@ -191,6 +191,7 @@ createApp({
       }
       this.contacts[this.activeContact].messages.push(newMsg)
       this.getAnswer();
+      this.getNewMsg='';
     },
     getAnswer(){
       setTimeout(() => {
@@ -204,10 +205,25 @@ createApp({
       }, 1000);
     },
     findContact(){
-      let arrayNameUser = [];
-      const name = this.nameContact;
-      arrayNameUser.push(name)
-      console.log(arrayNameUser);
+      this.getArray()
+
+     
+    },
+    getArray(){
+      let arrayName = []
+      for (let i = 0; i < this.contacts.length; i++) {
+        const el = this.contacts[i].name;
+        arrayName.push(el.toLowerCase())
+        console.log(arrayName);
+        if(arrayName.includes(this.nameContact.toLowerCase())){
+          console.log('si');
+        }else{
+          console.log('no');
+        }
+      }
+     },
+    showOnOff(){
+
     }
   }
 }).mount('#app')
