@@ -188,8 +188,19 @@ createApp({
         message: this.getNewMsg,
         status: 'sent'
       }
-      this.contacs.messages.push(newMsg)
-      console.log(newMsg.message);
+      this.contacts[this.activeContact].messages.push(newMsg)
+      this.getAnswer();
+    },
+    getAnswer(){
+      setTimeout(() => {
+        const newReceivedMsg = {
+          date: '10/01/2020 15:51:00',
+          message: 'Ok!',
+          status: 'received'
+        }
+        this.contacts[this.activeContact].messages.push(newReceivedMsg)
+
+      }, 1000);
     }
   }
 }).mount('#app')
