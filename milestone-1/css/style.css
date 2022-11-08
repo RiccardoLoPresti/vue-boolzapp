@@ -146,8 +146,13 @@ i{
 }
 
 .contact .profile{
+  display: none;
   height: 90px;
   cursor: pointer;
+}
+
+.contact .profile.show{
+  display: flex;
 }
 
 .contact .profile.active{

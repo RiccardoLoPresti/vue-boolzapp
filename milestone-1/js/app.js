@@ -5,6 +5,7 @@ createApp({
     return{
       activeContact: 0,
       getNewMsg: '',
+      nameContact:'',
       contacts: [
         {
           name: 'Michele',
@@ -195,12 +196,18 @@ createApp({
       setTimeout(() => {
         const newReceivedMsg = {
           date: '10/01/2020 15:51:00',
-          message: 'Ok!',
+          message: 'Ok!',//aumenteare il n risposte
           status: 'received'
         }
         this.contacts[this.activeContact].messages.push(newReceivedMsg)
 
       }, 1000);
+    },
+    findContact(){
+      let arrayNameUser = [];
+      const name = this.nameContact;
+      arrayNameUser.push(name)
+      console.log(arrayNameUser);
     }
   }
 }).mount('#app')

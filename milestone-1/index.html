@@ -70,7 +70,9 @@
             <!-- SEARCH BAR -->
             <div class="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input id="find" type="text" placeholder="Cerca o inizia una nuova chat">
+              <input id="find" type="text" placeholder="Cerca o inizia una nuova chat"
+              v-model.trim="nameContact"
+              @keyup="findContact()">
             </div>
   
             <!-- CONTACT -->
@@ -80,7 +82,7 @@
               <div class="user" v-for="(contact, index) in contacts">
 
                 <div class="profile" 
-                :class="{'active': index === activeContact}"
+                :class="{'active': index === activeContact}, {'show': contact.visible === true}"
                 @click="changeContact(index)">
                   <img :src="contact.avatar" :alt="contact.avatar">
   
