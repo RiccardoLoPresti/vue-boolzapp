@@ -215,15 +215,17 @@ createApp({
         const el = this.contacts[i].name;
         arrayName.push(el.toLowerCase())
         console.log(arrayName);
-        if(arrayName.includes(this.nameContact.toLowerCase())){
-          console.log('si');
-        }else{
-          console.log('no');
-        }
       }
+      this.showOnOff(arrayName)
      },
-    showOnOff(){
-
+    showOnOff(arrayName){
+      if(arrayName.includes(this.nameContact.toLowerCase())){
+        this.contacts.visible = true
+        console.log('si');
+      }else{
+        this.contacts.visible = false
+        console.log('no');
+      }
     }
   }
 }).mount('#app')
