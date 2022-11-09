@@ -99,11 +99,11 @@
 
                     <div class="text">
                       <p>{{contact.name}}</p>
-                      <p v-if="this.contacts[this.activeContact].messages.length > 0">
+                      <p>
                         {{contact.messages.at(-1).message}}
                       </p>
-                      <p v-else="this.contacts[this.activeContact].messages.length == 0">
-                        {{contact.messages.at(-1).message}}
+                      <p v-if="this.contacts[this.activeContact].messages.length == 0">
+                        {{noMsg}}
                       </p>
                     </div>
   

@@ -2,27 +2,12 @@ const {createApp} = Vue;
 
 let DateTime = luxon.DateTime;
 
-/*
-const now = DateTime.now();
-const time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
-*/
-
-function timeDateInterval (){
-  setInterval(() => {
-    const now = DateTime.now();
-    const time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
-    //console.log(time);
-  }, 1000);
-}
-
-
-timeDateInterval ()
-
 createApp({
   data(){
     return{
       activeContact: 0,
-      activeMsg: 0,
+      //activeMsg: 0,
+      time:'',
       getNewMsg: '',
       nameContact:'',
       noMsg:'non ci sono messaggi',
@@ -207,7 +192,7 @@ createApp({
     printMsg(){
       if(this.getNewMsg == '') return
       const newMsg = {
-        date: '',
+        date: this.time,
         message: this.getNewMsg.charAt(0).toUpperCase() + this.getNewMsg.slice(1),
         status: 'sent'
       }
@@ -221,7 +206,7 @@ createApp({
     getAnswer(){
       setTimeout(() => {
         const newReceivedMsg = {
-          date: '',
+          date: this.time,
           message: 'Ok!',//aumenteare il n risposte
           status: 'received'
         }
@@ -276,13 +261,20 @@ createApp({
       this.isShow = false
       console.log(this.isShow);
     },
+    timeDateInterval (){
+      setInterval(() => {
+        const now = DateTime.now();
+        return this.time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+      }, 1000);
+    }
   },
   mounted(){
     this.contacts.forEach((element,index) => {
       element.id = index
-      element.messages.forEach((message,index)=> {
+      /*element.messages.forEach((message,index)=> {
         message.idMsg = index
-      })
+      })*/
     });
+    this.timeDateInterval ()
   }
 }).mount('#app')
