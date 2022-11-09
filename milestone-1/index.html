@@ -84,8 +84,8 @@
               <div class="user" v-for="(contact, index) in resultQuery()">
 
                 <div class="profile" 
-                :class="{'active': index === activeContact}, {'show': contact.visible === true}"
-                @click="changeContact(index)">
+                :class="{'active': id === activeContact}, {'show': contact.visible === true}"
+                @click="changeContact(contact.id)">
                   <img :src="contact.avatar" :alt="contact.avatar">
   
                   <div class="contact-info">
@@ -94,7 +94,8 @@
                       <p v-if="this.contacts[this.activeContact].messages.length > 0">
                         {{contact.messages.at(-1).message}}
                       </p>
-                      <p v-else-if="this.contacts[this.activeContact].messages.length == 0">{{}}</p>
+                      <p v-else-if="this.contacts[this.activeContact].messages.length == 0">{{noMsg}}</p>
+                      <p v-else-if="this.contacts.messages.length > 0">{{contact.messages.at(-1).message}}</p>
                     </div>
   
                     <div class="hours">
@@ -138,8 +139,8 @@
             </div>
           
             <!-- CHAT -->
-            <div class="chat" :class="{'active-chat': index === activeContact}" 
-            v-for="(message, index) in contacts" ref="container">
+            <div id="chatId" class="chat" :class="{'active-chat': index === activeContact}" 
+            v-for="(message, index) in contacts">
 
               <div class="msg" :class="{'send': value.status === 'sent'}"
               v-for="(value, indexMsg) in contacts[activeContact].messages">
@@ -148,7 +149,7 @@
                   <i class="fa-solid fa-chevron-down"
                    @click="showCurtain(indexMsg)">
                   </i>
-<!-- NON VA CLICKOUT -->
+
                   <div class="curtain" 
                   :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}"
                   @click-outside="onClickOutside ()">
@@ -167,7 +168,8 @@
               </div>
               <input id="msg-bar" type="text" placeholder="Scrivi un messaggio"
               v-model.trim="getNewMsg"
-              @keyup.enter="printMsg()">
+              @keyup.enter="printMsg()"
+              >
               <div class="send-msg"
               @click="printMsg()">
               <i class="fa-solid fa-play"></i>

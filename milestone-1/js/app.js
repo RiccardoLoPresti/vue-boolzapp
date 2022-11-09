@@ -6,6 +6,7 @@ createApp({
       activeContact: 0,
       getNewMsg: '',
       nameContact:'',
+      noMsg:'non ci sono messaggi',
       isShow : false,
       contacts: [
         {
@@ -187,7 +188,7 @@ createApp({
     printMsg(){
       const newMsg = {
         date:'',
-        message: this.getNewMsg,
+        message: this.getNewMsg.charAt(0).toUpperCase() + this.getNewMsg.slice(1),
         status: 'sent'
       }
       this.contacts[this.activeContact].messages.push(newMsg)
@@ -205,27 +206,28 @@ createApp({
       }, 1000);
     },
     
-    //non va
-    autoScroll(){
+    /*non va
+   /*autoScroll(){
       setTimeout(() => {
         this.scrollToBottom()
       }, 1100);
     },
     scrollToBottom() {
-      const el = this.$refs.container;
+      const el = document.getElementById('chatId');
       el.scrollTop = el.scrollHeight;
     },
-    // /non va
+    */
 
     resultQuery(){
       if(this.nameContact){
+        console.log(this.nameContact);
       return this.contacts.filter((contact)=>{
-        return this.nameContact.toLowerCase().split(' ').every(v => contact.name.toLowerCase().includes(v))
+        return this.nameContact.toLowerCase().split(' ').every(value => contact.name.toLowerCase().includes(value))
       })
-      }else{
-        return this.contacts;
-      }
-    },
+    }else{
+      return this.contacts;
+    }
+  },
     clearSearch(){
       this.nameContact= '';
     },
@@ -241,10 +243,18 @@ createApp({
       = 
       !this.contacts[this.activeContact].messages[indexMsg].isShow 
     },
+
     //NON VA DC
-    onClickOutside () {
+    /*onClickOutside () {
       this.isShow = false
       console.log(this.isShow);
     },
+    */
+   
+  },
+  mounted(){
+    this.contacts.forEach((element,index) => {
+      element.id = index
+    });
   }
 }).mount('#app')
