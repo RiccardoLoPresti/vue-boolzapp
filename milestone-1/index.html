@@ -91,11 +91,17 @@
                   <div class="contact-info">
                     <div class="text">
                       <p>{{contact.name}}</p>
-                      <p>{{contact.messages.at(-1).message}}</p>
+                      <p v-if="this.contacts[this.activeContact].messages.length > 0">
+                        {{contact.messages.at(-1).message}}
+                      </p>
+                      <p v-else-if="this.contacts[this.activeContact].messages.length == 0">{{}}</p>
                     </div>
   
                     <div class="hours">
-                      <span>{{contact.messages.at(-1).date}}</span>
+                      <span v-if="this.contacts[this.activeContact].messages.length > 0">
+                        {{contact.messages.at(-1).date}}
+                      </span>
+                      <span v-else>{{}}</span>
                     </div>
                   </div>
                 </div>
@@ -133,7 +139,7 @@
           
             <!-- CHAT -->
             <div class="chat" :class="{'active-chat': index === activeContact}" 
-            v-for="(message, index) in contacts" >
+            v-for="(message, index) in contacts" ref="container">
 
               <div class="msg" :class="{'send': value.status === 'sent'}"
               v-for="(value, indexMsg) in contacts[activeContact].messages">
@@ -145,7 +151,7 @@
 <!-- NON VA CLICKOUT -->
                   <div class="curtain" 
                   :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}"
-                  @click-outside="onClickOutside (indexMsg)">
+                  @click-outside="onClickOutside ()">
                     <p>Message info</p>
                     <p @click="deleteMsg(indexMsg)">Delete message</p>
                   </div>

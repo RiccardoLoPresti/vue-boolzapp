@@ -202,9 +202,21 @@ createApp({
           status: 'received'
         }
         this.contacts[this.activeContact].messages.push(newReceivedMsg)
-
       }, 1000);
     },
+    
+    //non va
+    autoScroll(){
+      setTimeout(() => {
+        this.scrollToBottom()
+      }, 1100);
+    },
+    scrollToBottom() {
+      const el = this.$refs.container;
+      el.scrollTop = el.scrollHeight;
+    },
+    // /non va
+
     resultQuery(){
       if(this.nameContact){
       return this.contacts.filter((contact)=>{
@@ -218,16 +230,20 @@ createApp({
       this.nameContact= '';
     },
     deleteMsg(indexMsg){
-      this.contacts[this.activeContact].messages.splice(indexMsg,1)
+      this.contacts[this.activeContact].messages.splice(indexMsg,1);
+      if(this.contacts[this.activeContact].messages.length == 0){
+        this.contacts[this.activeContact].messages = [];
+      }
+      console.log(this.contacts[this.activeContact].messages.length);
     },
     showCurtain(indexMsg){
       this.contacts[this.activeContact].messages[indexMsg].isShow 
       = 
       !this.contacts[this.activeContact].messages[indexMsg].isShow 
     },
-    onClickOutside (indexMsg) {
+    //NON VA DC
+    onClickOutside () {
       this.isShow = false
-
       console.log(this.isShow);
     },
   }
