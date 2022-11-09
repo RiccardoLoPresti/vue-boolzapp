@@ -279,7 +279,6 @@ i{
 
 .curtain{
   position: absolute;
-  display: none;
   cursor: pointer;
   background-color: white;
   border-radius: 5px;

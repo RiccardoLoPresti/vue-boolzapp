@@ -156,7 +156,7 @@
             <!-- CHAT -->
             <div id="chatId" class="chat" :class="{'active-chat': index === activeContact}" 
             v-for="(message, index) in contacts"
-            @click="onClickOutside (indexMsg)">
+            @click="onClickOutside ()">
 
               <div class="msg" :class="{'send': value.status === 'sent'}"
               v-for="(value, indexMsg) in contacts[activeContact].messages">
@@ -169,7 +169,7 @@
                   </i>
 
                   <div class="curtain" 
-                  :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}">
+                  v-show="contacts[activeContact].messages[indexMsg].isShow === true">
 
                     <p>Message info</p>
                     <p @click="deleteMsg(indexMsg)">Delete message</p>
