@@ -10,7 +10,7 @@ createApp({
       time:'',
       getNewMsg: '',
       nameContact:'',
-      noMsg:'non ci sono messaggi',
+      noMsg:'..non ci sono messaggi',
       isShow : false,
       contacts: [
         {
@@ -238,10 +238,6 @@ createApp({
     },
     deleteMsg(indexMsg){
       this.contacts[this.activeContact].messages.splice(indexMsg,1);
-      if(this.contacts[this.activeContact].messages.length == 0){
-        this.contacts[this.activeContact].messages = [];
-      }
-      console.log(this.contacts[this.activeContact].messages.length);
     },
     showCurtain(indexMsg){
 
@@ -259,8 +255,8 @@ createApp({
     //NON VA 
     onClickOutside () {
       this.isShow = false
-      console.log(this.isShow);
     },
+
     timeDateInterval (){
       setInterval(() => {
         const now = DateTime.now();

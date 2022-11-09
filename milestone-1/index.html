@@ -44,7 +44,7 @@
       
               <div class="profile">
                 <img src="./img/avatar_io.jpg" alt="avatar_io">
-                <span>Sofia</span>
+                <span>Franco</span>
               </div>
       
               <div class="action">
@@ -99,16 +99,16 @@
 
                     <div class="text">
                       <p>{{contact.name}}</p>
-                      <p>
+                      <p v-if="contacts[index].messages.length > 0">
                         {{contact.messages.at(-1).message}}
                       </p>
-                      <p v-if="this.contacts[this.activeContact].messages.length == 0">
+                      <p v-else>
                         {{noMsg}}
                       </p>
                     </div>
   
                     <div class="hours">
-                      <span v-if="this.contacts[this.activeContact].messages.length > 0">
+                      <span v-if="contacts[index].messages.length > 0">
                         {{contact.messages.at(-1).date}}
                       </span>
                     </div>
