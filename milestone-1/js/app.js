@@ -6,12 +6,12 @@ createApp({
   data(){
     return{
       activeContact: 0,
-      //activeMsg: 0,
       time:'',
       getNewMsg: '',
       nameContact:'',
       noMsg:'..non ci sono messaggi',
       isShow : false,
+      answerArray:['Ok!','Grazie mille!','Arrivederci','Tutto bene?','Che si dice?','Ottimo!','Stasera ci vediamo?'],
       contacts: [
         {
           name: 'Michele',
@@ -204,26 +204,24 @@ createApp({
       this.getNewMsg='';
     },
     getAnswer(){
+      const answer = this.getRandomAnswer()
       setTimeout(() => {
         const newReceivedMsg = {
           date: this.time,
-          message: 'Ok!',//aumenteare il n risposte
+          message: answer,//aumenteare il n risposte
           status: 'received'
         }
         this.contacts[this.activeContact].messages.push(newReceivedMsg)
-      }, 1000);
+      }, 2000);
 
       setTimeout(()=>{
         this.scrollToBottom();
-      },1001)
+      },2001)
     },
-    
     scrollToBottom() {
       const el = document.getElementById('chatId');
       el.scrollTop = el.scrollHeight;
     },
-    
-    
     resultQuery(){
       if(this.nameContact){
       return this.contacts.filter((contact)=>{
@@ -240,16 +238,9 @@ createApp({
       this.contacts[this.activeContact].messages.splice(indexMsg,1);
     },
     showCurtain(indexMsg){
-
-      /*this.activeMsg = idMsg
-
-      this.isShow = !this.isShow
-      */
-
       this.contacts[this.activeContact].messages[indexMsg].isShow 
       = 
       !this.contacts[this.activeContact].messages[indexMsg].isShow 
-      
     },
 
     //NON VA 
@@ -260,17 +251,18 @@ createApp({
     timeDateInterval (){
       setInterval(() => {
         const now = DateTime.now();
-        return this.time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+        return this.time = now.setLocale('it').toLocaleString(DateTime.TIME_24_SIMPLE);
       }, 1000);
+    },
+    getRandomAnswer(){
+      return answer = this.answerArray[Math.floor(Math.random() * this.answerArray.length)];
     }
   },
   mounted(){
     this.contacts.forEach((element,index) => {
       element.id = index
-      /*element.messages.forEach((message,index)=> {
-        message.idMsg = index
-      })*/
     });
     this.timeDateInterval ()
+    this.getRandomAnswer()
   }
 }).mount('#app')
