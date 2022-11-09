@@ -71,12 +71,16 @@
   
             <!-- SEARCH BAR -->
             <div class="search">
+
               <i class="fa-solid fa-magnifying-glass"></i>
+
               <input id="find" type="text" placeholder="Cerca o inizia una nuova chat"
               v-model.trim="nameContact">
+
               <div class="clear" @click="clearSearch()">
                 <i class="fa-solid fa-xmark"></i>
               </div>
+
             </div>
   
             <!-- CONTACT -->
@@ -88,12 +92,17 @@
                 <div class="profile" 
                 :class="{'active': contact.id === activeContact}, {'show': contact.visible === true}"
                 @click="changeContact(contact.id)">
+
                   <img :src="contact.avatar" :alt="contact.avatar">
   
                   <div class="contact-info">
+
                     <div class="text">
                       <p>{{contact.name}}</p>
                       <p v-if="this.contacts[this.activeContact].messages.length > 0">
+                        {{contact.messages.at(-1).message}}
+                      </p>
+                      <p v-else="this.contacts[this.activeContact].messages.length == 0">
                         {{contact.messages.at(-1).message}}
                       </p>
                     </div>
@@ -102,14 +111,14 @@
                       <span v-if="this.contacts[this.activeContact].messages.length > 0">
                         {{contact.messages.at(-1).date}}
                       </span>
-                      <span v-else>{{}}</span>
                     </div>
+
                   </div>
+
                 </div>
 
               </div>
 
-              
             </div>
   
           </aside>
@@ -120,10 +129,13 @@
             
             <!-- HEADER -->
             <div class="header">
+
               <div class="profile">
+
                 <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].avatar">
                 
                 <div class="contact-info">
+
                   <div class="text">
                     <p>{{contacts[activeContact].name}}</p>
                     <p>{{contacts[activeContact].lastAccess}}</p>
@@ -134,28 +146,36 @@
                     <i class="fa-solid fa-paperclip"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </div>
+
                 </div>
+
               </div>
+
             </div>
           
             <!-- CHAT -->
             <div id="chatId" class="chat" :class="{'active-chat': index === activeContact}" 
-            v-for="(message, index) in contacts">
+            v-for="(message, index) in contacts"
+            @click="onClickOutside (indexMsg)">
 
               <div class="msg" :class="{'send': value.status === 'sent'}"
               v-for="(value, indexMsg) in contacts[activeContact].messages">
+
                   <p>{{value.message}}</p>
                   <span>{{value.date}}</span>
+
                   <i class="fa-solid fa-chevron-down"
                    @click="showCurtain(indexMsg)">
                   </i>
 
                   <div class="curtain" 
-                  :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}"
-                  @click-outside="onClickOutside ()">
+                  :class="{'show': this.contacts[this.activeContact].messages[indexMsg].isShow  === true}">
+
                     <p>Message info</p>
                     <p @click="deleteMsg(indexMsg)">Delete message</p>
+
                   </div>
+
               </div>
 
             </div>
@@ -166,14 +186,16 @@
               <div class="emoji">
                 <i class="fa-regular fa-face-smile"></i>
               </div>
+
               <input id="msg-bar" type="text" placeholder="Scrivi un messaggio"
               v-model.trim="getNewMsg"
-              @keyup.enter="printMsg()"
-              >
+              @keyup.enter="printMsg()">
+
               <div class="send-msg"
               @click="printMsg()">
               <i class="fa-solid fa-play"></i>
               </div>
+
               <div class="rec">
                 <i class="fa-solid fa-microphone"></i>
               </div>

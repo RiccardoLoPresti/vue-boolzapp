@@ -2,20 +2,27 @@ const {createApp} = Vue;
 
 let DateTime = luxon.DateTime;
 
+/*
+const now = DateTime.now();
+const time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+*/
 
 function timeDateInterval (){
   setInterval(() => {
     const now = DateTime.now();
-    return time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+    const time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     //console.log(time);
   }, 1000);
 }
 
 
+timeDateInterval ()
+
 createApp({
   data(){
     return{
       activeContact: 0,
+      activeMsg: 0,
       getNewMsg: '',
       nameContact:'',
       noMsg:'non ci sono messaggi',
@@ -198,12 +205,16 @@ createApp({
       this.activeContact = id
     },
     printMsg(){
+      if(this.getNewMsg == '') return
       const newMsg = {
         date: '',
         message: this.getNewMsg.charAt(0).toUpperCase() + this.getNewMsg.slice(1),
         status: 'sent'
       }
-      this.contacts[this.activeContact].messages.push(newMsg)
+      this.contacts[this.activeContact].messages.push(newMsg);
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },0)
       this.getAnswer();
       this.getNewMsg='';
     },
@@ -216,23 +227,20 @@ createApp({
         }
         this.contacts[this.activeContact].messages.push(newReceivedMsg)
       }, 1000);
+
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },1001)
     },
     
-    /*non va
-   /*autoScroll(){
-      setTimeout(() => {
-        this.scrollToBottom()
-      }, 1100);
-    },
     scrollToBottom() {
       const el = document.getElementById('chatId');
       el.scrollTop = el.scrollHeight;
     },
-    */
-
+    
+    
     resultQuery(){
       if(this.nameContact){
-        console.log(this.nameContact);
       return this.contacts.filter((contact)=>{
         return this.nameContact.toLowerCase().split(' ').every(value => contact.name.toLowerCase().includes(value))
       })
@@ -251,22 +259,30 @@ createApp({
       console.log(this.contacts[this.activeContact].messages.length);
     },
     showCurtain(indexMsg){
+
+      /*this.activeMsg = idMsg
+
+      this.isShow = !this.isShow
+      */
+
       this.contacts[this.activeContact].messages[indexMsg].isShow 
       = 
       !this.contacts[this.activeContact].messages[indexMsg].isShow 
+      
     },
 
-    //NON VA DC
-    /*onClickOutside () {
+    //NON VA 
+    onClickOutside () {
       this.isShow = false
       console.log(this.isShow);
     },
-    */
-   
   },
   mounted(){
     this.contacts.forEach((element,index) => {
       element.id = index
+      element.messages.forEach((message,index)=> {
+        message.idMsg = index
+      })
     });
   }
 }).mount('#app')
