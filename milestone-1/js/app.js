@@ -1,5 +1,17 @@
 const {createApp} = Vue;
 
+let DateTime = luxon.DateTime;
+
+
+function timeDateInterval (){
+  setInterval(() => {
+    const now = DateTime.now();
+    return time = now.setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+    //console.log(time);
+  }, 1000);
+}
+
+
 createApp({
   data(){
     return{
@@ -182,12 +194,12 @@ createApp({
     }
   },
   methods:{
-    changeContact(index){
-      this.activeContact = index
+    changeContact(id){
+      this.activeContact = id
     },
     printMsg(){
       const newMsg = {
-        date:'',
+        date: '',
         message: this.getNewMsg.charAt(0).toUpperCase() + this.getNewMsg.slice(1),
         status: 'sent'
       }
@@ -198,7 +210,7 @@ createApp({
     getAnswer(){
       setTimeout(() => {
         const newReceivedMsg = {
-          date: '10/01/2020 15:51:00',
+          date: '',
           message: 'Ok!',//aumenteare il n risposte
           status: 'received'
         }

@@ -17,6 +17,8 @@
   <script src="js/app.js" defer></script>
   <!-- VUE -->
   <script src="https://unpkg.com/vue@3"></script>
+  <!-- LUXON -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.0/luxon.min.js' integrity='sha512-79nhbkASdW5wurW8DtF9Vd7BEDKdTbCKkh87lW6W3tk9T4L9Bc58MzmvRzjMcFCSKpjkoRjwzrTdfOa5lkfJ5Q==' crossorigin='anonymous'></script>
 
   <title>Boolzapp</title>
 
@@ -84,7 +86,7 @@
               <div class="user" v-for="(contact, index) in resultQuery()">
 
                 <div class="profile" 
-                :class="{'active': id === activeContact}, {'show': contact.visible === true}"
+                :class="{'active': contact.id === activeContact}, {'show': contact.visible === true}"
                 @click="changeContact(contact.id)">
                   <img :src="contact.avatar" :alt="contact.avatar">
   
@@ -94,8 +96,6 @@
                       <p v-if="this.contacts[this.activeContact].messages.length > 0">
                         {{contact.messages.at(-1).message}}
                       </p>
-                      <p v-else-if="this.contacts[this.activeContact].messages.length == 0">{{noMsg}}</p>
-                      <p v-else-if="this.contacts.messages.length > 0">{{contact.messages.at(-1).message}}</p>
                     </div>
   
                     <div class="hours">
