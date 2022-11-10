@@ -238,18 +238,25 @@ createApp({
       this.contacts[this.activeContact].messages.splice(indexMsg,1);
     },
     showCurtain(indexMsg){
-      if(this.contacts[this.activeContact].messages[indexMsg].isShow===true){
+        
+      this.contacts[this.activeContact].messages.forEach((message)=>{
+        if(message.isShow === true){
+          message.isShow = false;
+        }else return
+        
+      })
+      
+      this.contacts[this.activeContact].messages[indexMsg].isShow = !this.contacts[this.activeContact].messages[indexMsg].isShow
+    
+      /*if(this.contacts[this.activeContact].messages[indexMsg].isShow===true){
         this.contacts[this.activeContact].messages[indexMsg].isShow = false
         console.log('falso');
       }else{
         this.contacts[this.activeContact].messages[indexMsg].isShow = true
         console.log('vero');
-      }
-      /*this.contacts[this.activeContact].messages[indexMsg].isShow 
-      = 
-      !this.contacts[this.activeContact].messages[indexMsg].isShow */
+      }*/
+      
 
-      console.log(this.contacts[this.activeContact].messages[indexMsg].isShow, indexMsg);
     },
     
     //NON VA 
